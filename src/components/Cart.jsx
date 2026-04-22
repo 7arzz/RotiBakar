@@ -1,8 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { ShoppingBag, Trash2, X, MessageCircle } from "lucide-react";
 
 export default function Cart({ cart, setCart }) {
   const total = cart.reduce((acc, item) => acc + item.total, 0);
-  const fmt = (p) => `Rp${p.toLocaleString("id-ID")}`;
+  const fmt = (p) => `Rp ${p.toLocaleString("id-ID")}`;
 
   const removeItem = (index) => {
     setCart(cart.filter((_, i) => i !== index));
@@ -31,7 +32,8 @@ export default function Cart({ cart, setCart }) {
     <div>
       <div className="cart-head">
         <div className="cart-head-left">
-          <h3>🛒 Keranjang</h3>
+          <ShoppingBag size={20} className="text-accent" />
+          <h3 className="text-[1.125rem]">Pesanan</h3>
           {cart.length > 0 && (
             <motion.span
               className="cart-badge"
@@ -46,16 +48,17 @@ export default function Cart({ cart, setCart }) {
         </div>
         {cart.length > 0 && (
           <button className="btn btn-ghost btn-sm" onClick={clearCart}>
-            Hapus Semua
+            <Trash2 size={14} />
+            <span className="text-xs fw-700 uppercase">Clear</span>
           </button>
         )}
       </div>
 
       {cart.length === 0 ? (
         <div className="cart-empty">
-          <div className="cart-empty-icon">🧺</div>
-          <p>Belum ada pesanan</p>
-          <p>Pilih roti dan racik pesananmu</p>
+          <ShoppingBag size={48} className="cart-empty-icon text-muted" strokeWidth={1} />
+          <p className="fw-700 text-secondary">Belum ada pesanan</p>
+          <p className="text-muted text-sm">Pilih varian roti dan racik pesananmu</p>
         </div>
       ) : (
         <>
@@ -72,8 +75,8 @@ export default function Cart({ cart, setCart }) {
               >
                 <div className="cart-entry-name">{item.roti}</div>
                 <div className="cart-entry-meta">
-                  <div>🍫 {item.selai}</div>
-                  <div>✨ {item.topping}</div>
+                  {item.selai && <div>• Selai: {item.selai}</div>}
+                  {item.topping && item.topping !== "-" && <div>• Topping: {item.topping}</div>}
                 </div>
                 <div className="cart-entry-foot">
                   <span className="cart-entry-price">{fmt(item.total)}</span>
@@ -81,7 +84,7 @@ export default function Cart({ cart, setCart }) {
                     className="btn btn-ghost btn-sm"
                     onClick={() => removeItem(i)}
                   >
-                    ✕ Hapus
+                    <X size={14} /> Hapus
                   </button>
                 </div>
               </motion.div>
@@ -90,7 +93,7 @@ export default function Cart({ cart, setCart }) {
 
           <div className="cart-checkout">
             <div className="cart-checkout-total">
-              <span className="cart-checkout-label">{cart.length} item</span>
+              <span className="text-sm fw-700 text-muted">{cart.length} ITEMS</span>
               <motion.span
                 className="cart-checkout-price"
                 key={total}
@@ -107,7 +110,8 @@ export default function Cart({ cart, setCart }) {
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.97 }}
             >
-              💬 Checkout via WhatsApp
+              <MessageCircle size={18} />
+              <span>Checkout WhatsApp</span>
             </motion.button>
           </div>
         </>

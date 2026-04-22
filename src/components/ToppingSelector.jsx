@@ -1,3 +1,5 @@
+import { Check } from "lucide-react";
+
 export default function ToppingSelector({ topping, selected, setSelected }) {
   const toggle = (item) => {
     if (selected.find((i) => i.id === item.id)) {
@@ -7,24 +9,24 @@ export default function ToppingSelector({ topping, selected, setSelected }) {
     }
   };
 
-  const fmt = (p) => `Rp${p.toLocaleString("id-ID")}`;
-
   return (
-    <div>
-      <div className="config-label">
-        <span className="label-icon">✨</span>
-        Ekstra Topping
-        <span className="config-hint">opsional</span>
+    <div className="selector-container">
+      <div className="selector-label">
+        <span className="selector-title">Ekstra Topping</span>
+        <span className="selector-hint">Opsional</span>
       </div>
-      <div className="chip-wrap">
+      <div className="luxury-chips">
         {topping.map((t) => (
           <div
             key={t.id}
-            className={`chip ${selected.find((i) => i.id === t.id) ? "active" : ""}`}
+            className={`luxury-chip ${selected.find((i) => i.id === t.id) ? "active" : ""}`}
             onClick={() => toggle(t)}
           >
-            {t.name}
-            <span className="chip-price">+{fmt(t.price)}</span>
+            <div className="chip-indicator">
+              {selected.find((i) => i.id === t.id) && <Check size={10} strokeWidth={4} />}
+            </div>
+            <span className="chip-label">{t.name}</span>
+            <span className="chip-premium">+ {t.price / 1000}k</span>
           </div>
         ))}
       </div>

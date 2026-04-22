@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext, useContext, useCallback } from "react";
+import { CheckCircle2, AlertTriangle, Info } from "lucide-react";
 
 const ToastContext = createContext(null);
 
@@ -36,19 +37,23 @@ function Toast({ message, type }) {
     requestAnimationFrame(() => setVisible(true));
   }, []);
 
-  const icon = type === "success" ? "✅" : type === "warning" ? "⚠️" : "ℹ️";
+  const getIcon = () => {
+    if (type === "success") return <CheckCircle2 size={16} className="text-success" />;
+    if (type === "warning") return <AlertTriangle size={16} className="text-accent" />;
+    return <Info size={16} className="text-info" />;
+  };
 
   return (
     <div
-      className="toast"
+      className="toast glass"
       style={{
         transform: visible ? "translateX(0)" : "translateX(120%)",
         opacity: visible ? 1 : 0,
         transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
-      <div className={`toast-icon ${type}`}>{icon}</div>
-      <span>{message}</span>
+      <div className={`toast-icon ${type}`}>{getIcon()}</div>
+      <span className="fw-600">{message}</span>
     </div>
   );
 }
