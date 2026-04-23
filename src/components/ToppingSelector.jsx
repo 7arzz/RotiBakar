@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check } from "./Icons";
 
 export default function ToppingSelector({ topping, selected, setSelected }) {
   const toggle = (item) => {

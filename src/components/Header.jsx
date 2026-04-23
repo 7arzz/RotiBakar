@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Flame, MapPin, Clock, Star } from "lucide-react";
+import { ChevronDown, Flame, MapPin, Clock, Star } from "./Icons";
 
 export default function Header() {
   return (

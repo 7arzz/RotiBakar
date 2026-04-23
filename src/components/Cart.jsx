@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingBag, Trash2, X, MessageCircle } from "lucide-react";
+import { ShoppingBag, Trash2, X, MessageCircle } from "./Icons";
 
 export default function Cart({ cart, setCart }) {
   const total = cart.reduce((acc, item) => acc + item.total, 0);

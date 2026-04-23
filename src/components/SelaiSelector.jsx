@@ -1,5 +1,5 @@
 import { useToast } from "./Toast";
-import { Check } from "lucide-react";
+import { Check } from "./Icons";
 
 export default function SelaiSelector({ selai, selected, setSelected, max }) {
   const toast = useToast();

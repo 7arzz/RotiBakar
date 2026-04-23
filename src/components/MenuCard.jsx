@@ -4,7 +4,7 @@ import { roti, selai, topping } from "../data/data";
 import SelaiSelector from "./SelaiSelector";
 import ToppingSelector from "./ToppingSelector";
 import { useToast } from "./Toast";
-import { Plus, Check, ShoppingBag, Sparkles } from "lucide-react";
+import { Plus, Check, ShoppingBag, Sparkles } from "./Icons";
 
 export default function MenuCard({ onAddToCart }) {
   const [selectedRoti, setSelectedRoti] = useState(roti[0]);

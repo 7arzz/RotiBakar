@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Instagram, MessageCircle, MapPin, Clock, Phone, Heart, CreditCard, Send } from "lucide-react";
+import { Instagram, MessageCircle, MapPin, Clock, Phone, Heart, CreditCard, Send } from "./Icons";
 
 export default function Footer() {
   const year = new Date().getFullYear();
