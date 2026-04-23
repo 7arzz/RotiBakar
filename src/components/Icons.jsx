@@ -162,6 +162,14 @@ export function Plus({ size = 24, strokeWidth = 2, className = "", ...rest }) {
   );
 }
 
+export function Minus({ size = 24, strokeWidth = 2, className = "", ...rest }) {
+  return (
+    <Icon size={size} strokeWidth={strokeWidth} className={className} {...rest}>
+      <path d="M5 12h14" />
+    </Icon>
+  );
+}
+
 export function Check({ size = 24, strokeWidth = 2, className = "", ...rest }) {
   return (
     <Icon size={size} strokeWidth={strokeWidth} className={className} {...rest}>

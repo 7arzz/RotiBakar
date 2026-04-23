@@ -33,7 +33,8 @@ export default function MenuCard({ onAddToCart }) {
         selectedTopping.length > 0
           ? selectedTopping.map((t) => t.name).join(", ")
           : "-",
-      total: totalHarga(),
+      price: totalHarga(),
+      quantity: 1,
     };
 
     onAddToCart(item);

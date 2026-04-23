@@ -10,8 +10,22 @@ export default function Home() {
   const [cart, setCart] = useState([]);
   const [showMobileCart, setShowMobileCart] = useState(false);
 
-  const addToCart = (item) => {
-    setCart((prev) => [...prev, item]);
+  const addToCart = (newItem) => {
+    setCart((prev) => {
+      const existingItemIndex = prev.findIndex(
+        (item) =>
+          item.roti === newItem.roti &&
+          item.selai === newItem.selai &&
+          item.topping === newItem.topping
+      );
+
+      if (existingItemIndex > -1) {
+        const updatedCart = [...prev];
+        updatedCart[existingItemIndex].quantity += 1;
+        return updatedCart;
+      }
+      return [...prev, newItem];
+    });
   };
 
   return (
