@@ -9,7 +9,7 @@ export default function Header() {
         <div className="navbar-brand">
           <div className="navbar-logo">🍞</div>
           <div>
-            <div className="navbar-title">Roti Bakar Tarzz</div>
+            <div className="navbar-title">Toastoria</div>
             <div className="navbar-subtitle">The Artisan Bakery</div>
           </div>
         </div>
@@ -49,7 +49,9 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            Indulge in our thick-cut, charcoal-grilled brioche toast, slathered with Belgian chocolate and premium toppings. A symphony of warmth and sweetness in every bite.
+            Indulge in our thick-cut, charcoal-grilled brioche toast, slathered
+            with Belgian chocolate and premium toppings. A symphony of warmth
+            and sweetness in every bite.
           </motion.p>
 
           <motion.div
@@ -67,8 +69,8 @@ export default function Header() {
               <span>16:00 — 22:00</span>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="scroll-indicator"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -84,17 +86,21 @@ export default function Header() {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           className="hero-image-wrapper"
           initial={{ opacity: 0, scale: 0.95, rotate: -2 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="image-card glass">
-            <img src="/hero.png" alt="Premium Roti Bakar" className="hero-image-main" />
+            <img
+              src="/hero.png"
+              alt="Premium Roti Bakar"
+              className="hero-image-main"
+            />
             <div className="image-overlay" />
-            
-            <motion.div 
+
+            <motion.div
               className="experience-tag glass"
               initial={{ x: 20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -110,9 +116,9 @@ export default function Header() {
               </div>
             </motion.div>
           </div>
-          
+
           {/* Floating Element */}
-          <motion.div 
+          <motion.div
             className="floating-badge glass"
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
